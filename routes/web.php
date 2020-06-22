@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','PublicController@index')->name('index');
 Route::get('/singleProduct/{id}','PublicController@singleProduct')->name('singleProduct');
+Route::post('/add/cart','PublicController@add_cart')->name('add.cart');
 
 Auth::routes(['register' => false]);
 

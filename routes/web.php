@@ -8,9 +8,11 @@ Route::get('/','PublicController@index')->name('index');
 Route::get('/singleProduct/{id}','PublicController@singleProduct')->name('singleProduct');
 Route::post('/add/cart','PublicController@add_cart')->name('add.cart');
 Route::get('/cart','PublicController@cart')->name('cart');
+Route::get('/add/cart/{id}','PublicController@addcart')->name('addcartsmall');
 Route::get('/cart/delte/{id}','PublicController@deletecart')->name('cart.delete');
 Route::get('/cart/dec/{id}/{qty}','PublicController@cartdec')->name('cart.dec');
 Route::get('/cart/inc/{id}/{qty}','PublicController@cartinc')->name('cart.inc');
+Route::get('/cart/checkout/','PublicController@cartcheckout')->name('cart.checkout');
 
 Auth::routes(['register' => false]);
 

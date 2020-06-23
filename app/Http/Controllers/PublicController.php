@@ -47,5 +47,21 @@ class PublicController extends Controller
      Cart::update($id,$qty+1);
      return redirect()->back();
   }
+  public function addcart($id){
+    $pdt=Product::find($id);
+
+  $cartItem= Cart::add([
+    'id'=>$pdt->id,
+    'price'=>$pdt->price,
+    'name'=>$pdt->title,
+    'qty'=>1
+   ]);
+  Cart::associate($cartItem->rowId, 'App\Product');
+  return redirect()->route('cart');
+
+  }
+  public function cartcheckout(){
+    return view('checkout');
+  }
 
 }

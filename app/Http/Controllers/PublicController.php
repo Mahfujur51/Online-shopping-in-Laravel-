@@ -19,13 +19,33 @@ class PublicController extends Controller
   public function add_cart(){
    $pdt=Product::find(request()->pdt_id);
 
-  $cart= Cart::add([
+  $cartItem= Cart::add([
     'id'=>$pdt->id,
     'price'=>$pdt->price,
     'name'=>$pdt->title,
     'qty'=>request()->qty
    ]);
-   dd(Cart::content());
+  Cart::associate($cartItem->rowId, 'App\Product');
+  return redirect()->route('cart');
 
   }
+  public function cart(){
+
+        return view('cart');
+  }
+  public function deletecart($id){
+    Cart::remove($id);
+    return redirect()->back();
+  }
+  public function cartdec($id,$qty){
+
+    Cart::update($id,$qty-1);
+     return redirect()->back();
+
+  }
+  public function cartinc($id,$qty){
+     Cart::update($id,$qty+1);
+     return redirect()->back();
+  }
+
 }

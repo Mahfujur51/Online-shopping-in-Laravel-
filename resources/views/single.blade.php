@@ -39,9 +39,9 @@
                         <form action="{{ route('add.cart') }}" method="post">
                             @csrf
                             <div class="quantity">
-                                <a href="#" class="quantity-minus">-</a>
+                                <a href="#" class="quantity-minus quantity-minus-d">-</a>
                                 <input title="Qty" name="qty" class="email input-text qty text" type="text" value="2">
-                                <a href="#" class="quantity-plus">+</a>
+                                <a href="#" class="quantity-plus quantity-plus-d">+</a>
                             </div>
                             <input type="hidden" name="pdt_id" value="{{$product->id}}">
                             <button class="btn btn-medium btn--primary">

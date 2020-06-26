@@ -2,18 +2,6 @@
 @section('title','Add to Cart')
 @section('content')
 <div class="content-wrapper">
-    <!-- Books products grid -->
-    <div class="container">
-        <div class="row pt120">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div class="heading align-center mb60">
-                    <h4 class="h1 heading-title">Udemy E-commerce tutorial</h4>
-                    <p class="heading-text">Buy books, and we ship to you.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container-fluid">
         <div class="row medium-padding120 bg-border-color">
             <div class="container">
@@ -32,7 +20,6 @@
                                     </thead>
                                     <tbody>
                                         @foreach (Cart::content() as $product)
-
                                         <tr class="cart_item">
                                             <td class="product-thumbnail">
                                                 <div class="cart-product__item">
@@ -80,27 +67,27 @@
                                             <img src="{{asset('fontend/img/amex.png')}}" alt="Amex">
                                         </a>
                                         <span style="float: right;">
-                                            <form action="/your-server-side-code" method="POST">
-                                                <script
-                                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-                                                data-amount="999"
-                                                data-name="Stripe.com"
-                                                data-description="Widget"
-                                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                                data-locale="auto"
-                                                data-zip-code="true">
-                                            </script>
-                                        </form>
-                                    </span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                            <form action="{{ route('paid') }}" method="POST">
+                                              <script
+                                              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                              data-key="pk_test_51Gx4RHGN82mlZ9FRpFQJX53WYhxxiNUDyANdIU7JTBOp2VE9UqCU7Me2YLu0pGdbhmFCfhBU670F9cTdzcKVH6s200EvaEy45p"
+                                              data-amount="999"
+                                              data-name="Stripe.com"
+                                              data-description="Widget"
+                                              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                              data-locale="auto"
+                                              data-zip-code="true">
+                                          </script>
+                                      </form>
+                                  </span>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 <!-- End Books products grid -->
 </div>
